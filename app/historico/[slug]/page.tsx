@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import fs from "fs"
 import path from "path"
 import { compileMDX } from "next-mdx-remote/rsc"
+import remarkGfm from "remark-gfm"
 
 interface HistoricoPageProps {
   params: Promise<{
@@ -25,7 +26,7 @@ async function getContent(slug: string) {
       options: {
         parseFrontmatter: true,
         mdxOptions: {
-          remarkPlugins: [],
+          remarkPlugins: [remarkGfm],
           rehypePlugins: [],
         },
       },

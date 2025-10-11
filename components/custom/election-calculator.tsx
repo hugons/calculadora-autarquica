@@ -26,12 +26,16 @@ export function ElectionCalculator() {
 
         <div className="lg:hidden mb-6">
           <Select value={selectedTab} onValueChange={setSelectedTab}>
-            <SelectTrigger className="w-full">
+            <SelectTrigger className="w-full bg-primary text-primary-foreground">
               <SelectValue placeholder="Selecione um órgão autárquico" />
             </SelectTrigger>
             <SelectContent>
               {AUTARQUIAS.map((autarquia) => (
-                <SelectItem key={autarquia.id} value={autarquia.id}>
+                <SelectItem
+                  key={autarquia.id}
+                  value={autarquia.id}
+                  className="focus:bg-primary focus:text-primary-foreground data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                >
                   {autarquia.nome}
                 </SelectItem>
               ))}

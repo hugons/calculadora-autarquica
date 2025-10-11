@@ -9,7 +9,7 @@ interface HistoricoPageProps {
   }>
 }
 
-const allowedSlugs = ["autarquicas-2021", "legislativas-2024"]
+const allowedSlugs = ["autarquicas-2021", "legislativas-2025"]
 
 async function getContent(slug: string) {
   if (!allowedSlugs.includes(slug)) {
@@ -45,10 +45,8 @@ export default async function HistoricoPage({ params }: HistoricoPageProps) {
   }
 
   return (
-    <div className="container py-8 md:py-12">
-      <div className="mx-auto max-w-4xl">
-        <article className="prose prose-slate lg:prose-lg max-w-none">{content}</article>
-      </div>
+    <div className="container mx-auto max-w-7xl py-8 md:py-12 px-6">
+      <article className="prose prose-slate lg:prose-lg max-w-none dark:prose-invert">{content}</article>
     </div>
   )
 }

@@ -18,10 +18,10 @@ export function SiteHeader() {
             Autárquicas 2021
           </Link>
           <Link
-            href="/historico/legislativas-2024"
+            href="/historico/legislativas-2025"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            Legislativas 2024
+            Legislativas 2025
           </Link>
         </nav>
       </div>

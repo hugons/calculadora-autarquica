@@ -22,7 +22,30 @@ async function getContent(slug: string) {
     const source = fs.readFileSync(contentPath, "utf8")
     const { content } = await compileMDX({
       source,
-      options: { parseFrontmatter: true },
+      options: {
+        parseFrontmatter: true,
+        mdxOptions: {
+          remarkPlugins: [],
+          rehypePlugins: [],
+        },
+      },
+      components: {
+        table: (props: any) => (
+          <div className="overflow-x-auto my-6">
+            <table className="min-w-full divide-y divide-border" {...props} />
+          </div>
+        ),
+        thead: (props: any) => <thead className="bg-muted" {...props} />,
+        tbody: (props: any) => <tbody className="divide-y divide-border bg-card" {...props} />,
+        tr: (props: any) => <tr className="hover:bg-muted/50" {...props} />,
+        th: (props: any) => <th className="px-4 py-3 text-left text-sm font-semibold" {...props} />,
+        td: (props: any) => <td className="px-4 py-3 text-sm" {...props} />,
+        h1: (props: any) => <h1 className="text-4xl font-bold mb-6 mt-8" {...props} />,
+        h2: (props: any) => <h2 className="text-3xl font-bold mb-4 mt-8" {...props} />,
+        h3: (props: any) => <h3 className="text-2xl font-bold mb-3 mt-6" {...props} />,
+        p: (props: any) => <p className="mb-4 leading-relaxed" {...props} />,
+        a: (props: any) => <a className="text-primary hover:underline" {...props} />,
+      },
     })
     return content
   } catch (error) {
@@ -46,7 +69,7 @@ export default async function HistoricoPage({ params }: HistoricoPageProps) {
 
   return (
     <div className="container mx-auto max-w-7xl py-8 md:py-12 px-6">
-      <article className="prose prose-slate lg:prose-lg max-w-none dark:prose-invert">{content}</article>
+      <article className="max-w-none">{content}</article>
     </div>
   )
 }

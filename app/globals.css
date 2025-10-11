@@ -11,7 +11,7 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.25 0.01 260);
   --primary: oklch(0.72 0.15 165);
-  --primary-foreground: oklch(0.99 0 0);
+  --primary-foreground: oklch(0.15 0 0); /* Changed button text color from white to black */
   --secondary: oklch(0.92 0.01 85);
   --secondary-foreground: oklch(0.25 0.01 260);
   --muted: oklch(0.95 0.005 85);
